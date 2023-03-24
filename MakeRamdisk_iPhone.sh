@@ -281,8 +281,7 @@ download_File "RestoreRamDisk" "RestoreRamDisk"
 required/img4 -i $(find work/ -iname \*.dmg) -o "work/ramdisk.dmg"
 hdiutil resize -size 300MB work/ramdisk.dmg
 hdiutil attach -mountpoint SSHRD work/ramdisk.dmg
-required/gtar -x --no-overwrite-dir -f other/ssh.tar -C ./SSHRD/
-cp -rp other/MountSystem SSHRD/usr/bin/
+tar -zxvf other/ssh.tar.lzma -C ./SSHRD/
 sleep 5
 hdiutil detach -force SSHRD
 hdiutil resize -sectors min work/ramdisk.dmg
